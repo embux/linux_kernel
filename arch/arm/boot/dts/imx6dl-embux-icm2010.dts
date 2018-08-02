@@ -1,0 +1,307 @@
+/*
+ * Copyright (C) 2013-2014 Freescale Semiconductor, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
+/dts-v1/;
+
+#include "imx6dl-embux.dtsi"
+#include "imx6dl-embux-base-ldb.dtsi"
+#include "imx6dl-embux-icm2010.dtsi"
+
+/ {
+	model = "Freescale i.MX6 DualLite embux icm-2010 board";
+	compatible = "fsl,imx6dl-sabresd", "fsl,imx6dl";
+};
+
+&i2c2 {
+	pmic: pfuze100@08 {
+		compatible = "fsl,pfuze100";
+		reg = <0x08>;
+
+		regulators {
+			sw1a_reg: sw1ab {
+				regulator-min-microvolt = <1875000>;
+				regulator-max-microvolt = <1875000>;
+				regulator-boot-on;
+				regulator-always-on;
+				regulator-ramp-delay = <6250>;
+			};
+
+			sw1c_reg: sw1c {
+				regulator-min-microvolt = <1875000>;
+				regulator-max-microvolt = <1875000>;
+				regulator-boot-on;
+				regulator-always-on;
+				regulator-ramp-delay = <6250>;
+			};
+
+			sw2_reg: sw2 {
+				regulator-min-microvolt = <3950000>;
+				regulator-max-microvolt = <3950000>;
+				regulator-boot-on;
+				regulator-always-on;
+			};
+
+			sw3a_reg: sw3a {
+				regulator-min-microvolt = <1975000>;
+				regulator-max-microvolt = <1975000>;
+				regulator-boot-on;
+				regulator-always-on;
+			};
+
+			sw3b_reg: sw3b {
+				regulator-min-microvolt = <1975000>;
+				regulator-max-microvolt = <1975000>;
+				regulator-boot-on;
+				regulator-always-on;
+			};
+
+			sw4_reg: sw4 {
+				regulator-min-microvolt = <3300000>;
+				regulator-max-microvolt = <3300000>;
+			};
+
+			swbst_reg: swbst {
+				regulator-min-microvolt = <5150000>;
+				regulator-max-microvolt = <5150000>;
+			};
+
+			snvs_reg: vsnvs {
+				regulator-min-microvolt = <3000000>;
+				regulator-max-microvolt = <3000000>;
+				regulator-boot-on;
+				regulator-always-on;
+			};
+
+			vref_reg: vrefddr {
+				regulator-boot-on;
+				regulator-always-on;
+			};
+
+			vgen1_reg: vgen1 {
+				regulator-min-microvolt = <1550000>;
+				regulator-max-microvolt = <1550000>;
+			};
+
+			vgen2_reg: vgen2 {
+				regulator-min-microvolt = <1550000>;
+				regulator-max-microvolt = <1550000>;
+			};
+
+			vgen3_reg: vgen3 {
+				regulator-min-microvolt = <3300000>;
+				regulator-max-microvolt = <3300000>;
+			};
+
+			vgen4_reg: vgen4 {
+				regulator-min-microvolt = <3300000>;
+				regulator-max-microvolt = <3300000>;
+				regulator-always-on;
+			};
+
+			vgen5_reg: vgen5 {
+				regulator-min-microvolt = <3300000>;
+				regulator-max-microvolt = <3300000>;
+				regulator-always-on;
+			};
+
+			vgen6_reg: vgen6 {
+				regulator-min-microvolt = <3300000>;
+				regulator-max-microvolt = <3300000>;
+				regulator-always-on;
+			};
+		};
+	};
+};
+
+&i2c3 {
+	rtc: rx8010@32 {
+		compatible = "epson,rx8010";
+		reg = <0x32>;
+		//interrupt-parent = <&gpio2>, <&gpio4>;
+		//interrupts = <17>, <19>;
+		//rx8010-irq_1 = <&gpio2 17 0>;	
+		//rx8010-irq_2 = <&gpio4 19 0>;		
+	};
+};
+
+&battery {
+	offset-charger = <1485>;
+	offset-discharger = <1464>;
+	offset-usb-charger = <1285>;
+};
+
+//&i2c3 {
+//	max17135@48 {
+//		compatible = "maxim,max17135";
+//		reg = <0x48>;
+//		vneg_pwrup = <1>;
+//		gvee_pwrup = <1>;
+//		vpos_pwrup = <2>;
+//		gvdd_pwrup = <1>;
+//		gvdd_pwrdn = <1>;
+//		vpos_pwrdn = <2>;
+//		gvee_pwrdn = <1>;
+//		vneg_pwrdn = <1>;
+//		SENSOR-supply = <&reg_sensor>;
+//		gpio_pmic_pwrgood = <&gpio2 21 0>;
+//		gpio_pmic_vcom_ctrl = <&gpio3 17 0>;
+//		gpio_pmic_wakeup = <&gpio3 20 0>;
+//		gpio_pmic_v3p3 = <&gpio2 20 0>;
+//		gpio_pmic_intr = <&gpio2 25 0>;
+//    
+//		regulators {
+//			DISPLAY_reg: DISPLAY {
+//				regulator-name = "DISPLAY";
+//			};
+//    
+//			GVDD_reg: GVDD {
+//				/* 20v */
+//				regulator-name = "GVDD";
+//			};
+//    
+//			GVEE_reg: GVEE {
+//				/* -22v */
+//				regulator-name = "GVEE";
+//			};
+//    
+//			HVINN_reg: HVINN {
+//				/* -22v */
+//				regulator-name = "HVINN";
+//			};
+//    
+//			HVINP_reg: HVINP {
+//				/* 20v */
+//				regulator-name = "HVINP";
+//			};
+//    
+//			VCOM_reg: VCOM {
+//				regulator-name = "VCOM";
+//				/* 2's-compliment, -4325000 */
+//				regulator-min-microvolt = <0xffbe0178>;
+//				/* 2's-compliment, -500000 */
+//				regulator-max-microvolt = <0xfff85ee0>;
+//			};
+//    
+//			VNEG_reg: VNEG {
+//				/* -15v */
+//				regulator-name = "VNEG";
+//			};
+//    
+//			VPOS_reg: VPOS {
+//				/* 15v */
+//				regulator-name = "VPOS";
+//			};
+//    
+//			V3P3_reg: V3P3 {
+//				regulator-name = "V3P3";
+//			};
+//		};
+//	};
+//};
+
+//&gpio1 {
+//	pinctrl-names = "default";
+//	pinctrl-0 = <&pinctrl_gpio1_ebx_ea2>;	
+//	status = "okay";
+//};
+//
+//&gpio2 {
+//	pinctrl-names = "default";
+//	pinctrl-0 = <&pinctrl_gpio2_ebx_ea2>;	
+//	status = "okay";
+//};
+//
+//&gpio3 {
+//	pinctrl-names = "default";
+//	pinctrl-0 = <&pinctrl_gpio3_ebx_ea2>;	
+//	status = "okay";
+//};
+//
+//&gpio4 {
+//	pinctrl-names = "default";
+//	pinctrl-0 = <&pinctrl_gpio4_ebx_ea2>;	
+//	status = "okay";
+//};
+//
+//&gpio5 {
+//	pinctrl-names = "default";
+//	pinctrl-0 = <&pinctrl_gpio5_ebx_ea2>;	
+//	status = "okay";
+//};
+//
+//&gpio6 {
+//	pinctrl-names = "default";
+//	pinctrl-0 = <&pinctrl_gpio6_ebx_ea2>;	
+//	status = "okay";
+//};
+//
+//&gpio7 {
+//	pinctrl-names = "default";
+//	pinctrl-0 = <&pinctrl_gpio7_ebx_ea2>;	
+//	status = "okay";
+//};
+
+//&iomuxc {
+//	pinctrl-names = "default";
+//	pinctrl-0 = <&pinctrl_gpio1_ebx_ea2 &pinctrl_gpio2_ebx_ea2 &pinctrl_gpio3_ebx_ea2 &pinctrl_gpio4_ebx_ea2 &pinctrl_gpio5_ebx_ea2
+//				&pinctrl_gpio6_ebx_ea2 &pinctrl_gpio7_ebx_ea2>;
+//	//<&pinctrl_dramaddr_ebx_ea2>, 	<&pinctrl_jtag_ebx_ea2>
+//	//hog {
+//	//	pinctrl_hog_2: hoggrp-2 {
+//	//		fsl,pins = <
+//	//			/* MAX17135 */
+//	//			MX6QDL_PAD_EIM_A17__GPIO2_IO21 0x80000000
+//	//			MX6QDL_PAD_EIM_D17__GPIO3_IO17 0x80000000
+//	//			MX6QDL_PAD_EIM_D20__GPIO3_IO20 0x80000000
+//	//			MX6QDL_PAD_EIM_A18__GPIO2_IO20 0x80000000
+//	//			MX6QDL_PAD_EIM_OE__GPIO2_IO25 0x80000000
+//	//			/* elan touch */
+//	//			MX6QDL_PAD_EIM_A20__GPIO2_IO18 0x80000000
+//	//			MX6QDL_PAD_EIM_DA8__GPIO3_IO08 0x80000000
+//	//			MX6QDL_PAD_EIM_D28__GPIO3_IO28 0x170b0
+//	//		>;
+//	//	};
+//	//};
+//};
+
+&epdc {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_epdc_ebx_ea2>, <&pinctrl_gpio1_ebx_ea2>, <&pinctrl_gpio2_ebx_ea2>, <&pinctrl_gpio3_ebx_ea2>,
+				<&pinctrl_gpio4_ebx_ea2>, <&pinctrl_gpio5_ebx_ea2>, <&pinctrl_gpio6_ebx_ea2>, <&pinctrl_gpio7_ebx_ea2>;
+	V3P3-supply = <&vgen6_reg>; 
+	//VCOM-supply = <&VCOM_reg>;
+	//DISPLAY-supply = <&DISPLAY_reg>;
+	status = "okay";
+};
+
+&ldb {
+	status = "okay";
+	lvds-channel@0 {
+		crtc = "ipu1-di1";
+	};
+
+	lvds-channel@1 {
+		crtc = "ipu1-di0";
+	};
+};
+
+&mxcfb1 {
+	status = "okay";
+};
+
+&mxcfb2 {
+	status = "okay";
+};
+
+&mxcfb3 {
+	status = "okay";
+};
+
+&pxp {
+	status = "okay";
+};

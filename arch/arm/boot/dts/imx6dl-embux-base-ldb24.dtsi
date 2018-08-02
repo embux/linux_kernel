@@ -1,0 +1,29 @@
+&ldb {
+	status = "okay";
+	
+	lvds-channel@0 {
+		crtc = "ipu1-di1";
+		fsl,data-width = <24>;
+
+		display-timings {
+			WXGA1280x800: WXGA {  
+				clock-frequency = <68200000>;
+				hactive = <1280>;
+				vactive = <800>;
+				hback-porch = <5>;
+				hfront-porch = <64>;
+				vback-porch = <2>;
+				vfront-porch = <40>;
+				hsync-len = <1>;
+				vsync-len = <1>;
+				linux,phandle = <&WXGA1280x800>;
+				panel-A01 = "tianma TM070JDHG30 24b, , 7.0"; 
+			};
+		};
+		
+	};
+
+	lvds-channel@1 {
+		crtc = "ipu1-di0";		
+	};
+};

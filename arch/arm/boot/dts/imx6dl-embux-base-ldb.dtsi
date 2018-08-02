@@ -1,0 +1,247 @@
+&ldb {
+	status = "okay";
+
+	lvds-channel@0 {
+		fsl,data-mapping = "spwg";
+		fsl,data-width = <18>;
+		status = "okay";
+		primary;
+		display-timings {
+//			native-mode = <&WXGA1280x800>;
+
+			WXGA1280x800: WXGA {
+				clock-frequency = <65000000>;
+				hactive = <1280>;
+				vactive = <800>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&WXGA1280x800>;
+				panel-01 = "hannstar HSD101PWW1, suniverse SZ101-BEUA00-PWW1H, 10.1"; /* <panel-name>, <model-name>, <cable-part#>, <diagonal-size> */
+				panel-02 = "innolux G154L1, , 15.4";
+			};			
+
+			WSVGA1024x600: WSVGA {
+				clock-frequency = <65000000>;
+				hactive = <1024>;
+				vactive = <600>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&WSVGA1024x600>;
+				panel-01 = "innolux ZJ080NA-08A, suniverse ST080WSLD02, 8.0"; 
+				panel-02 = "hannstar HSD100IFW4, , 10.0";
+				panel-03 = ", suniverse ST070WSLD01, 7.0";
+			};			
+
+			WVGA800x480: WVGA {
+				clock-frequency = <65000000>;
+				hactive = <800>;
+				vactive = <480>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&WVGA800x480>;
+				panel-01 = "innolux, suniverse ST070WVLD02, 7.0";
+			};			
+
+			SVGA800x600: SVGA {
+				clock-frequency = <65000000>;
+				hactive = <800>;
+				vactive = <600>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&SVGA800x600>;
+				panel-01 = "auo G121SN01_V4, , 12.1";
+				panel-02 = "auo G084SN03V3 12V, , 12.1";
+				panel-03 = "mitsubishi AA104SL12 24V, , 5244004001H, 12.1";
+			};			
+
+			WXGAA1280x768: WXGAA {
+				clock-frequency = <65000000>;
+				hactive = <1280>;
+				vactive = <768>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&WXGAA1280x768>;
+				panel-01 = "name, model, size";
+			};			
+
+			HD1280x720: HD {
+				clock-frequency = <65000000>;
+				hactive = <1280>;
+				vactive = <720>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&HD1280x720>;
+				panel-01 = "name, model, size";
+			};			
+
+			VGA640x480: VGA {
+				clock-frequency = <65000000>;
+				hactive = <640>;
+				vactive = <480>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&VGA640x480>;
+				panel-01 = "ampire AM-640480G4TNQW-A0H,, 5.7";
+			};			
+
+			XGA1024x768: XGA {
+				clock-frequency = <65000000>;
+				hactive = <1024>;
+				vactive = <768>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&XGA1024x768>;
+				panel-01 = "innolux - suniverse ST070WVLD02";
+			};
+		};
+	};
+
+	lvds-channel@1 {
+		fsl,data-mapping = "spwg";
+		fsl,data-width = <18>;
+		
+		status = "disabled";
+
+		display-timings {
+			//native-mode = <&timing1>;	
+
+			WXGA1280x800a: WXGA {
+				clock-frequency = <65000000>;
+				hactive = <1280>;
+				vactive = <800>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&WXGA1280x800a>;
+			};			
+
+			WSVGA1024x600a: WSVGA {
+				clock-frequency = <65000000>;
+				hactive = <1024>;
+				vactive = <600>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&WSVGA1024x600a>;
+			};			
+
+			WVGA800x480a: WVGA {
+				clock-frequency = <65000000>;
+				hactive = <800>;
+				vactive = <480>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&WVGA800x480a>;
+			};			
+
+			SVGA800x600a: SVGA {
+				clock-frequency = <65000000>;
+				hactive = <800>;
+				vactive = <600>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&SVGA800x600a>;
+			};			
+
+			WXGAA1280x768a: WXGAA {
+				clock-frequency = <65000000>;
+				hactive = <1280>;
+				vactive = <768>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&WXGAA1280x768a>;
+			};			
+
+			HD1280x720a: HD {
+				clock-frequency = <65000000>;
+				hactive = <1280>;
+				vactive = <720>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&HD1280x720a>;
+			};			
+
+			VGA640x480a: VGA {
+				clock-frequency = <65000000>;
+				hactive = <640>;
+				vactive = <480>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&VGA640x480a>;
+			};			
+
+			XGA1024x768a: XGA {
+				clock-frequency = <65000000>;
+				hactive = <1024>;
+				vactive = <768>;
+				hback-porch = <220>;
+				hfront-porch = <40>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+				hsync-len = <60>;
+				vsync-len = <10>;
+				linux,phandle = <&XGA1024x768a>;
+			};
+		};
+	};
+};
+
+
